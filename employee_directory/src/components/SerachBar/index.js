@@ -3,7 +3,6 @@ import Wrapper from "../Wrapper";
 import EmployeeCard from "../EmployeeCard";
 import { MDBCol, MDBIcon } from "mdbreact";
 
-import employees from "employee_directory/src/employees.json";
 
 const SearchBar = (props) => {
     return (

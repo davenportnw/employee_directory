@@ -2,17 +2,17 @@ import React, {Component} from "react";
 import EmployeeCard from "./components/EmployeeCard";
 import Wrapper from "./components/Wrapper";
 import SearchBar from "./components/SerachBar";
-import employees from "./employees.json";
+import employees from "./components/employees";
 import './App.css';
 
 class App extends Component {
   // Setting this.state.employees to the employee json array.
   state = {
     employees,
-    searchEmployee = ""
+    searchEmployee: ''
   };
   //Handling Search Bar input
-  handleInput = (employees) => {
+  handleInput = (employee) => {
     this.setState({ searchEmployee: employees.target.value});
   }
   //Filter Search
