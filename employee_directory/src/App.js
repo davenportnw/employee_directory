@@ -12,12 +12,12 @@ class App extends Component {
     searchEmployee: ''
   };
   //Handling Search Bar input
-  handleInput = (employee) => {
-    this.setState({ searchEmployee: employees.target.value});
+  handleInput = (e) => {
+    this.setState({ searchEmployee: e.target.value});
   }
   //Filter Search
   render() {
-    let filteredSearch = this.state.employees.filter((employee) =>{
+    let filteredSearch = this.state.employees.filter((employee) => {
       return employee.name.toLowerCase().includes(this.state.searchEmployee)
     })
   
@@ -25,7 +25,7 @@ class App extends Component {
       <div>
         <SearchBar handleInput={this.handleInput}/>
         <Wrapper>
-          {this.state.employees.map(employee => (
+          {filteredSearch.map((employee) => (
             <EmployeeCard
               id={employee.id}
               key={employee.id}

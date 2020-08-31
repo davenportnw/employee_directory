@@ -1,6 +1,4 @@
-import React, {Component} from "react";
-import Wrapper from "../Wrapper";
-import EmployeeCard from "../EmployeeCard";
+import React from "react";
 import { MDBCol, MDBIcon } from "mdbreact";
 
 
