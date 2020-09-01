@@ -9,36 +9,50 @@ class App extends Component {
   // Setting this.state.employees to the employee json array.
   state = {
     employees,
-    searchEmployee: ''
+    search: null
   };
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+  //     search:null
+  //   };
+  // }
+
   //Handling Search Bar input
-  handleInput = (e) => {
-    this.setState({ searchEmployee: e.target.value});
+  handleInput = (event) => {
+    let keyword = event.target.value;
+    this.setState({ search: keyword});
   }
-  //Filter Search
+
   render() {
-    let filteredSearch = this.state.employees.filter((employee) => {
-      return employee.name.toLowerCase().includes(this.state.searchEmployee)
+    //Filter Results
+    const filterSearch = employees.filter((data) => {
+      if(this.state.search === null)
+        return data
+      else if(data.name.toLowerCase().includes(this.state.search.toLowerCase())){
+        return data
+      }
     })
-  
-    return (
-      <div>
-        <SearchBar handleInput={this.handleInput}/>
-        <Wrapper>
-          {filteredSearch.map((employee) => (
-            <EmployeeCard
-              id={employee.id}
-              key={employee.id}
-              name={employee.name}
-              image={employee.image}
-              occupation={employee.occupation}
-              email={employee.email}
-            />
-          ))}
-        </Wrapper>
-      </div>
-    );
-  }
+
+  return (
+    <div>
+    <Wrapper>
+    <SearchBar handleInput={this.handleInput}/>
+    {filterSearch.map((data) => (
+        <EmployeeCard
+          id={data.id}
+          key={data.id}
+          name={data.name}
+          occupation={data.occupation}
+          email={data.email}
+        />
+      ))}
+    </Wrapper>
+  </div>
+  )
 }
+}
+
 
 export default App;
