@@ -7,17 +7,17 @@ import './App.css';
 
 class App extends Component {
   // Setting this.state.employees to the employee json array.
-  state = {
-    employees,
-    search: null
-  };
-  // constructor() {
-  //   super();
+  // state = {
+  //   employees,
+  //   search: null
+  // };
+  constructor() {
+    super();
 
-  //   this.state = {
-  //     search:null
-  //   };
-  // }
+    this.state = {
+      search: null
+    };
+  }
 
   //Handling Search Bar input
   handleInput = (event) => {
@@ -27,6 +27,7 @@ class App extends Component {
 
   render() {
     //Filter Results
+  
     const filterSearch = employees.filter((data) => {
       if(this.state.search === null)
         return data
